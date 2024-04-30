@@ -86,6 +86,12 @@
       <DependentUpon>DoctorManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DOCTORS.cs" />
+    <Compile Include="EmployeesMangementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeesMangementForm.Designer.cs">
+      <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
