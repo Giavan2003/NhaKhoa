@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NhaKhoa.Appointments
@@ -19,6 +14,7 @@ namespace NhaKhoa.Appointments
         {
             InitializeComponent();
             selectedDate = DateTime.Today;
+            DateTimePicker1.Value= DateTime.Today;
             LoadSchedule();
         }
 
@@ -86,15 +82,25 @@ namespace NhaKhoa.Appointments
                     DateTime endDateTime = Convert.ToDateTime(appointmentRow["EndDateTime"]);
                     string description = appointmentRow["Description"].ToString();
                     string status = appointmentRow["Status"].ToString();
+                    string patientName = appointmentRow["PatientName"].ToString(); // Assuming the patient's name is retrieved from the database
+                    AppointmentInfo appointmentInfo = new AppointmentInfo(startDateTime, description, patientName, status);
+                    appointmentInfo.StartDateTime = startDateTime;
+                    
+                    appointmentInfo.Description = description;
+                    appointmentInfo.PatientName = patientName;
+                    appointmentInfo.Status = status;
 
                     // Calculate button height based on appointment duration
                     TimeSpan appointmentDuration = endDateTime - startDateTime;
                     int buttonHeight = (int)appointmentDuration.TotalMinutes * 2;
 
+                    // Create button text combining patient name and description
+                    string buttonText = $"Khách : {patientName} \n Ghi chú :{description}";
+
                     // Create button for the appointment
                     Button btn = new Button();
-                    btn.Text = description;
-                    btn.Tag = startDateTime; // You can store additional data in the Tag property
+                    btn.Text = buttonText;
+                    btn.Tag = appointmentInfo; // You can store additional data in the Tag property
                     btn.Size = new Size(250, buttonHeight); // Set button size based on appointment duration
                     btn.Location = new Point(labelX, (int)((startDateTime.TimeOfDay.TotalMinutes - 480) / 30) * 40 + 40); // Adjust Y position based on start time
                     btn.FlatStyle = FlatStyle.Flat;
@@ -103,13 +109,13 @@ namespace NhaKhoa.Appointments
                     switch (status)
                     {
                         case "Chưa hoàn thành ":
-                            btn.BackColor = Color.Blue;                        
+                            btn.BackColor = ColorTranslator.FromHtml("#33FFFF");
                             break;
                         case "Đã hoàn thành ":
-                            btn.BackColor = Color.Green;
+                            btn.BackColor = ColorTranslator.FromHtml("#33FF33");
                             break;
                         case "Đã bị hủy ":
-                            btn.BackColor = Color.Red;
+                            btn.BackColor = ColorTranslator.FromHtml("#FF3300");
                             break;
                         default:
                             btn.BackColor = Color.Gray;
@@ -134,9 +140,10 @@ namespace NhaKhoa.Appointments
         private DataTable GetDoctorAppointments(DateTime selectedDate, string doctorName)
         {
             // Fetch appointments for the specified doctor and date from the database
-            SqlCommand command = new SqlCommand("SELECT Appointments.StartDateTime, Appointments.EndDateTime, Appointments.Description, Appointments.Status " +
+            SqlCommand command = new SqlCommand("SELECT Appointments.StartDateTime, Appointments.EndDateTime, Appointments.Description, Appointments.Status, Patients.FullName AS PatientName " +
                                 "FROM Appointments " +
                                 "INNER JOIN Doctors ON Appointments.DoctorID = Doctors.DoctorID " +
+                                "LEFT JOIN Patients ON Appointments.PatientID = Patients.PatientID " +
                                 "WHERE CONVERT(date, Appointments.StartDateTime) = @SelectedDate AND Doctors.FullName = @DoctorName", mydb.getConnection);
             command.Parameters.Add("@SelectedDate", SqlDbType.DateTime).Value = selectedDate;
             command.Parameters.Add("@DoctorName", SqlDbType.NVarChar).Value = doctorName;
@@ -157,17 +164,36 @@ namespace NhaKhoa.Appointments
             // Add the ScrollablePanel to the form
             Controls.Add(scrollablePanel);
         }
-     
+
 
 
         private void AppointmentButton_Click(object sender, EventArgs e)
         {
-            // Handle click event to show appointment details
-            Button btn = sender as Button;
-            DateTime startDateTime = (DateTime)btn.Tag;
-            // Show appointment details in a popup or another panel
-            MessageBox.Show("Appointment details: " + btn.Text + " - " + startDateTime.ToString());
+            try
+            {
+                // Handle click event to show appointment details
+                Button btn = sender as Button;
+                AppointmentInfo appointmentInfo = btn.Tag as AppointmentInfo;
+
+                // Lấy thông tin từ AppointmentInfo để hiển thị trong MessageBox
+                string description = appointmentInfo.Description;
+                string patientName = appointmentInfo.PatientName;
+                string status = appointmentInfo.Status;
+                DateTime StartDate = appointmentInfo.StartDateTime;
+                // Mở form cập nhật trạng thái và truyền thông tin cuộc hẹn
+                UpdateStatusApm updateForm = new UpdateStatusApm(StartDate,patientName, description, status);
+                if (updateForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Nếu người dùng nhấn Save và cập nhật thành công, tải lại lịch hẹn
+                    LoadSchedule();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi mở form cập nhật trạng thái: " + ex.Message);
+            }
         }
+
 
         private DataTable GetDoctors()
         {
@@ -177,6 +203,17 @@ namespace NhaKhoa.Appointments
             DataTable doctorsTable = new DataTable();
             adapter.Fill(doctorsTable);
             return doctorsTable;
+        }
+
+        private void btntomorow_Click(object sender, EventArgs e)
+        {
+            DateTimePicker1.Value = DateTime.Today.AddDays(1);
+
+        }
+
+        private void btntoday_Click(object sender, EventArgs e)
+        {
+            DateTimePicker1.Value = DateTime.Today;
         }
     }
 }
