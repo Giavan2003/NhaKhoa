@@ -17,6 +17,9 @@ namespace NhaKhoa.Appointments
         public ApmForEmployees()
         {
             InitializeComponent();
+            DateTimePicker1.Value = DateTime.Now;
+
+
         }
         MYDB mydb = new MYDB();
         APM apm = new APM();
