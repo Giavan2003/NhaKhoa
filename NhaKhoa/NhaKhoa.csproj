@@ -65,6 +65,7 @@
     <Compile Include="Appointments\ApmForEmployees.Designer.cs">
       <DependentUpon>ApmForEmployees.cs</DependentUpon>
     </Compile>
+    <Compile Include="Appointments\AppointmentInfo.cs" />
     <Compile Include="Appointments\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -114,6 +115,10 @@
     <Compile Include="PATIENTS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateStatusApm.cs" />
+    <Compile Include="UpdateStatusApm.Designer.cs">
+      <DependentUpon>UpdateStatusApm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +144,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateStatusApm.resx">
+      <DependentUpon>UpdateStatusApm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DENTALDataSet.xsc">
       <DependentUpon>DENTALDataSet.xsd</DependentUpon>
