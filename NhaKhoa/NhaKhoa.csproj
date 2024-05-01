@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
@@ -74,10 +83,26 @@
     <Compile Include="Appointments\ShowAppointment.Designer.cs">
       <DependentUpon>ShowAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="CameraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CameraForm.Designer.cs">
+      <DependentUpon>CameraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DENTALDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DENTALDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DENTALDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DENTALDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DENTALDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DENTALDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="DoctorManagementForm.cs">
       <SubType>Form</SubType>
@@ -92,6 +117,7 @@
     <Compile Include="EmployeesMangementForm.Designer.cs">
       <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EMPLOYESS.cs" />
     <Compile Include="PatientManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +138,7 @@
     </Compile>
     <Compile Include="MYDB.cs" />
     <Compile Include="PATIENTS.cs" />
+    <Compile Include="POSITION.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdminMainForm.resx">
@@ -123,8 +150,14 @@
     <EmbeddedResource Include="Appointments\ShowAppointment.resx">
       <DependentUpon>ShowAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CameraForm.resx">
+      <DependentUpon>CameraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoctorManagementForm.resx">
       <DependentUpon>DoctorManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeesMangementForm.resx">
+      <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientManagementForm.resx">
       <DependentUpon>PatientManagementForm.cs</DependentUpon>
@@ -150,6 +183,28 @@
     </None>
     <None Include="DENTALDataSet.xss">
       <DependentUpon>DENTALDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet1.xsc">
+      <DependentUpon>DENTALDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DENTALDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DENTALDataSet1.xss">
+      <DependentUpon>DENTALDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet2.xsc">
+      <DependentUpon>DENTALDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DENTALDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DENTALDataSet2.xss">
+      <DependentUpon>DENTALDataSet2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -69,7 +69,9 @@ namespace NhaKhoa
             }
             else if (verif())
             {
-                guna2PictureBox1.Image.Save(image, guna2PictureBox1.Image.RawFormat);
+
+
+                //guna2PictureBox1.Image.Save(image, guna2PictureBox1.Image.RawFormat);
                 if (patients.InsertPatient(fname, adrs, phone, bdate, gender, image))
                 {
                     MessageBox.Show("New Patient Added", "Add Patient", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -112,15 +114,15 @@ namespace NhaKhoa
                 return true;
             }
         }
-
+        private CameraForm camera;
         private void bt_upload_Click(object sender, EventArgs e)
         {
-            OpenFileDialog opf = new OpenFileDialog();
-            opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
-            if ((opf.ShowDialog() == DialogResult.OK))
-            {
-                guna2PictureBox1.Image = Image.FromFile(opf.FileName);
-            }
+            camera = new CameraForm(this);
+            camera.ShowDialog();
+        }
+        public void SetImage(Image image)
+        {
+            guna2PictureBox1.Image = image;
         }
 
         private void guna2DataGridView1_DoubleClick(object sender, EventArgs e)

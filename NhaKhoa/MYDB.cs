@@ -9,7 +9,7 @@ namespace NhaKhoa
 {
     class MYDB
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-TQLN938\BGIAVAN;Initial Catalog=DENTAL;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source = (localdb)\ProjectModels;Initial Catalog = DENTAL; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         // get the connection
         public SqlConnection getConnection
