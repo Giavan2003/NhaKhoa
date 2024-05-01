@@ -51,6 +51,7 @@
             this.btntoday.Size = new System.Drawing.Size(107, 32);
             this.btntoday.TabIndex = 0;
             this.btntoday.Text = "Hôm Nay ";
+            this.btntoday.Click += new System.EventHandler(this.btntoday_Click);
             // 
             // btntomorow
             // 
@@ -68,6 +69,7 @@
             this.btntomorow.Size = new System.Drawing.Size(107, 32);
             this.btntomorow.TabIndex = 1;
             this.btntomorow.Text = "Ngày Mai ";
+            this.btntomorow.Click += new System.EventHandler(this.btntomorow_Click);
             // 
             // DateTimePicker1
             // 

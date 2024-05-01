@@ -180,6 +180,7 @@
             this.bt_lichhen.Size = new System.Drawing.Size(270, 62);
             this.bt_lichhen.TabIndex = 2;
             this.bt_lichhen.Text = "Quản Lý Bác Sĩ";
+            this.bt_lichhen.Click += new System.EventHandler(this.bt_bacsi_Click);
             // 
             // guna2Button1
             // 
@@ -205,6 +206,7 @@
             this.guna2Button1.TabIndex = 1;
             this.guna2Button1.Text = "Quản Lý Nhân Viên";
             this.guna2Button1.TextFormatNoPrefix = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2PictureBox1
             // 
@@ -308,6 +310,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminMainForm";
             this.Text = "AdminMainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AdminMainForm_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
