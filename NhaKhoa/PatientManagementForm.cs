@@ -51,7 +51,7 @@ namespace NhaKhoa
                 gender = "Female";
             }
 
-            MemoryStream image = new MemoryStream();
+            MemoryStream imageStream = new MemoryStream();
             int born_year = guna2DateTimePicker1.Value.Year;
             int this_year = DateTime.Now.Year;
             // Kiểm tra tuổi hợp lệ của sinh viên
@@ -69,10 +69,10 @@ namespace NhaKhoa
             }
             else if (verif())
             {
-
-
+                guna2PictureBox1.Image.Save(imageStream, ImageFormat.Png);
+                byte[] imageBytes = imageStream.ToArray();
                 //guna2PictureBox1.Image.Save(image, guna2PictureBox1.Image.RawFormat);
-                if (patients.InsertPatient(fname, adrs, phone, bdate, gender, image))
+                if (patients.InsertPatient(fname, adrs, phone, bdate, gender, imageBytes))
                 {
                     MessageBox.Show("New Patient Added", "Add Patient", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

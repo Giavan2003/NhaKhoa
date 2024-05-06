@@ -17,8 +17,8 @@ namespace NhaKhoa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LoginForm());
-            Application.Run(new ShowAppointment());
+            Application.Run(new LoginForm());
+            //Application.Run(new ApmForEmployees());
         }
     }
 }
