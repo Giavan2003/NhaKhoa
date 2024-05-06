@@ -112,7 +112,7 @@ namespace NhaKhoa
         private void EmployeesMangementForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dENTALDataSet2.Employees' table. You can move, or remove it, as needed.
-            this.employeesTableAdapter.Fill(this.dENTALDataSet2.Employees);
+            //this.employeesTableAdapter.Fill(this.dENTALDataSet2.Employees);
             SqlCommand command = new SqlCommand("SELECT * FROM Employees");
             //SqlCommand command = new SqlCommand("SELECT DISTINCT std.Id, std.fname, std.lname, std.bdate, std.gender, std.phone, std.email, std.address, std.picture, course.lable \r\nFROM std \r\nLEFT JOIN subject ON std.Id = subject.StudentId \r\nLEFT JOIN course ON subject.CourseId = course.Id;\r\n");
             guna2DataGridView1.ReadOnly = true;
