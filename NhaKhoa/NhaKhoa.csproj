@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -79,6 +79,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMedicinesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMedicinesForm.Designer.cs">
+      <DependentUpon>AddMedicinesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPlanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPlanForm.Designer.cs">
+      <DependentUpon>AddPlanForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,13 +181,7 @@
       <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYESS.cs" />
-    <Compile Include="MEDICINE\ManageMedicines.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MEDICINE\ManageMedicines.Designer.cs">
-      <DependentUpon>ManageMedicines.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MEDICINE\Medicines.cs" />
+    <Compile Include="PATIENTMEDICINES.cs" />
     <Compile Include="PatientManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,14 +205,6 @@
     <Compile Include="POSITION.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SERVICE\ManageSV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SERVICE\ManageSV.Designer.cs">
-      <DependentUpon>ManageSV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SERVICE\Services.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,9 +229,6 @@
     <EmbeddedResource Include="EmployeesMangementForm.resx">
       <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MEDICINE\ManageMedicines.resx">
-      <DependentUpon>ManageMedicines.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PatientManagementForm.resx">
       <DependentUpon>PatientManagementForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,13 +238,13 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SERVICE\ManageSV.resx">
-      <DependentUpon>ManageSV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DENTALDataSet.xsc">
       <DependentUpon>DENTALDataSet.xsd</DependentUpon>

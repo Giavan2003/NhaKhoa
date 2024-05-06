@@ -81,7 +81,15 @@ namespace NhaKhoa
             adapter.Fill(table);
             return table;
         }
-
+        public DataTable getDoctor2()
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM Doctors", mydb.getConnection);
+            command.Connection = mydb.getConnection;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
         // Hàm để xóa một bác sĩ
         public bool DeleteDoctor(int id)
         {
@@ -99,7 +107,24 @@ namespace NhaKhoa
                 return false;
             }
         }
-
+        public string GetNameDoctor(int DoctorID)
+        {
+            string DoctorName = "";
+            using (SqlConnection connection = new SqlConnection(mydb.getConnection.ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT FullName FROM Doctors WHERE DoctorID = @DoctorID", connection))
+                {
+                    command.Parameters.AddWithValue("@DoctorID", DoctorID);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        DoctorName = reader["FullName"].ToString();
+                    }
+                }
+            }
+            return DoctorName;
+        }
         // Trong lớp DOCTORS
         // Hàm để tìm kiếm bác sĩ
         public DataTable SearchDoctors(string keyword)

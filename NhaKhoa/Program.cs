@@ -18,10 +18,15 @@ namespace NhaKhoa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             //Application.Run(new LoginForm());
             //Application.Run(new ShowAppointment());
             //Application.Run(new ApmForEmployees());
              Application.Run(new AdminMainForm());
+=======
+            Application.Run(new LoginForm());
+            //Application.Run(new ApmForEmployees());
+>>>>>>> origin/PhongDev2
         }
     }
 }

@@ -20,7 +20,7 @@ namespace NhaKhoa
             command.Parameters.Add("@fullName", SqlDbType.NVarChar).Value = fullName;
             command.Parameters.Add("@dateOfBirth", SqlDbType.Date).Value = dateOfBirth;
             command.Parameters.Add("@gender", SqlDbType.NVarChar).Value = gender;
-            command.Parameters.Add("@identityNumber", SqlDbType.VarChar).Value = identityNumber;
+            command.Parameters.Add("@identityNumber", SqlDbType.NVarChar).Value = identityNumber;
             command.Parameters.Add("@address", SqlDbType.NVarChar).Value = address;
             command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
             command.Parameters.Add("@phoneNumber", SqlDbType.VarChar).Value = phoneNumber;
