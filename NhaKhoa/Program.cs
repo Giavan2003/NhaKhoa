@@ -1,4 +1,4 @@
-﻿using NhaKhoa.Appointments;
+using NhaKhoa.Appointments;
 using NhaKhoa.MEDICINE;
 using System;
 using System.Collections.Generic;

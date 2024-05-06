@@ -181,7 +181,7 @@
       <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYESS.cs" />
-    <Compile Include="PATIENTMEDICINES.cs" />
+
     <Compile Include="PatientManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
