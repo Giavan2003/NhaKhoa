@@ -181,13 +181,7 @@
       <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYESS.cs" />
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MEDICINE\ManageMedicines.Designer.cs">
-      <DependentUpon>ManageMedicines.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MEDICINE\Medicines.cs" />
-    <Compile Include="MEDICINE\ManageMedicines.cs">
+
     <Compile Include="PatientManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
