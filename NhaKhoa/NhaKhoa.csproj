@@ -45,6 +45,24 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -68,6 +86,12 @@
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Appointments\APM.cs" />
+    <Compile Include="Appointments\ApmForDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appointments\ApmForDoctor.Designer.cs">
+      <DependentUpon>ApmForDoctor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Appointments\ApmForEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +135,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DENTALDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DENTALDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DENTALDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DENTALDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DENTALDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DENTALDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DENTALDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DENTALDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DENTALDataSet6.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DoctorManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +169,13 @@
       <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYESS.cs" />
+    <Compile Include="MEDICINE\ManageMedicines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MEDICINE\ManageMedicines.Designer.cs">
+      <DependentUpon>ManageMedicines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MEDICINE\Medicines.cs" />
     <Compile Include="PatientManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,8 +199,19 @@
     <Compile Include="POSITION.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SERVICE\ManageSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SERVICE\ManageSV.Designer.cs">
+      <DependentUpon>ManageSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SERVICE\Services.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appointments\ApmForDoctor.resx">
+      <DependentUpon>ApmForDoctor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Appointments\ApmForEmployees.resx">
       <DependentUpon>ApmForEmployees.cs</DependentUpon>
@@ -169,6 +231,9 @@
     <EmbeddedResource Include="EmployeesMangementForm.resx">
       <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MEDICINE\ManageMedicines.resx">
+      <DependentUpon>ManageMedicines.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PatientManagementForm.resx">
       <DependentUpon>PatientManagementForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +247,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SERVICE\ManageSV.resx">
+      <DependentUpon>ManageSV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DENTALDataSet.xsc">
       <DependentUpon>DENTALDataSet.xsd</DependentUpon>
@@ -216,6 +284,50 @@
     <None Include="DENTALDataSet2.xss">
       <DependentUpon>DENTALDataSet2.xsd</DependentUpon>
     </None>
+    <None Include="DENTALDataSet3.xsc">
+      <DependentUpon>DENTALDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DENTALDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DENTALDataSet3.xss">
+      <DependentUpon>DENTALDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet4.xsc">
+      <DependentUpon>DENTALDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DENTALDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DENTALDataSet4.xss">
+      <DependentUpon>DENTALDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet5.xsc">
+      <DependentUpon>DENTALDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DENTALDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DENTALDataSet5.xss">
+      <DependentUpon>DENTALDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet6.xsc">
+      <DependentUpon>DENTALDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DENTALDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DENTALDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DENTALDataSet6.xss">
+      <DependentUpon>DENTALDataSet6.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -235,7 +347,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rang.jpg" />
   </ItemGroup>

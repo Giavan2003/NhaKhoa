@@ -23,8 +23,10 @@ namespace NhaKhoa
         DOCTORS doctors = new DOCTORS();
         private void DoctorManagementForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dENTALDataSet4.Doctors' table. You can move, or remove it, as needed.
+            this.doctorsTableAdapter1.Fill(this.dENTALDataSet4.Doctors);
             // TODO: This line of code loads data into the 'dENTALDataSet1.Doctors' table. You can move, or remove it, as needed.
-            this.doctorsTableAdapter.Fill(this.dENTALDataSet1.Doctors);
+            //this.doctorsTableAdapter.Fill(this.dENTALDataSet1.Doctors);
             SqlCommand command = new SqlCommand("SELECT * FROM Doctors");
             //SqlCommand command = new SqlCommand("SELECT DISTINCT std.Id, std.fname, std.lname, std.bdate, std.gender, std.phone, std.email, std.address, std.picture, course.lable \r\nFROM std \r\nLEFT JOIN subject ON std.Id = subject.StudentId \r\nLEFT JOIN course ON subject.CourseId = course.Id;\r\n");
             guna2DataGridView1.ReadOnly = true;
@@ -68,7 +70,7 @@ namespace NhaKhoa
             {
                 MessageBox.Show("Invalid input. Please check the provided information.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (!doctors.IsEmailUnique(email))
+            else if (!doctors.IsEmailUnique(email))
             {
                 MessageBox.Show("Email already exists. Please use a different email.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -83,7 +85,7 @@ namespace NhaKhoa
             else if (verif())
             {
                 guna2PictureBox1.Image.Save(image, guna2PictureBox1.Image.RawFormat);
-                if (doctors.InsertDoctor(fname, specialization, bdate, gender, identitynumber, adrs, email, phone, image))
+                if (!doctors.InsertDoctor(fname, specialization, bdate, gender, identitynumber, adrs, email, phone, image))
                 {
                     MessageBox.Show("New Doctor Added", "Add Doctor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -244,7 +246,7 @@ namespace NhaKhoa
         private void bt_refresh_Click(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dENTALDataSet1.Doctors' table. You can move, or remove it, as needed.
-            this.doctorsTableAdapter.Fill(this.dENTALDataSet1.Doctors);
+            
             SqlCommand command = new SqlCommand("SELECT * FROM Doctors");
             //SqlCommand command = new SqlCommand("SELECT DISTINCT std.Id, std.fname, std.lname, std.bdate, std.gender, std.phone, std.email, std.address, std.picture, course.lable \r\nFROM std \r\nLEFT JOIN subject ON std.Id = subject.StudentId \r\nLEFT JOIN course ON subject.CourseId = course.Id;\r\n");
             guna2DataGridView1.ReadOnly = true;

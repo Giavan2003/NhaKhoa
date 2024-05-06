@@ -9,22 +9,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NhaKhoa.Appointments
 {
-    public partial class ApmForEmployees : Form
+    public partial class ApmForDoctor : Form
     {
+        int DoctorID;
         private DateTime selectedDate;
-        public ApmForEmployees()
+        public ApmForDoctor(int doctorsID)
         {
-            InitializeComponent();
             DateTimePicker1.Value = DateTime.Now;
+            InitializeComponent();
+            DoctorID = doctorsID;
         }
         MYDB mydb = new MYDB();
         APM apm = new APM();
         DateTime EndTime;
         DateTime StartTime;
-
+        public DataTable getNameDogtors(int ID )
+        {
+            SqlCommand command = new SqlCommand("SELECT FullName FROM Doctors where DoctorID = @DoctorID", mydb.getConnection);
+            command.Parameters.AddWithValue("@DoctorID", ID);
+            return executeQuery(command);
+        }
+        private void FillTextboxBoxBS()
+        {
+            DataTable doctorNameTable = getNameDogtors(DoctorID);
+            if (doctorNameTable.Rows.Count > 0)
+            {
+                DataRow row = doctorNameTable.Rows[0];
+                string doctorName = row["FullName"].ToString();
+                guna2TextBox1.Text = doctorName;
+            }
+        }
         private void FillComboBoxStart()
         {
             comboBoxStart.Items.Clear();
@@ -38,10 +57,9 @@ namespace NhaKhoa.Appointments
                 startTime = startTime.Add(interval);
             }
         }
-        public DataTable getAllDogtors()
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("SELECT * FROM Doctors", mydb.getConnection);
-            return executeQuery(command);
+
         }
         public DataTable getAllPatients()
         {
@@ -70,21 +88,6 @@ namespace NhaKhoa.Appointments
             comboBoxTime.Items.Add("3 giờ");
             comboBoxTime.Items.Add("4 giờ");
         }
-        private void ApmForEmployees_Load(object sender, EventArgs e)
-        {
-            comboBoxStart.DropDownHeight = 150;
-            FillComboBoxStart();
-            FillComboBoxTime();
-            FillComboBoxBN();
-            FillComboBoxBS();
-        }
-        private void FillComboBoxBS()
-        {
-            ComboBoxBS.DataSource = getAllDogtors();
-            ComboBoxBS.DisplayMember = "FullName";
-            ComboBoxBS.ValueMember = "DoctorID";
-            ComboBoxBS.SelectedItem = null;
-        }
         private void FillComboBoxBN()
         {
             ComboBoxBN.DataSource = getAllPatients();
@@ -96,7 +99,7 @@ namespace NhaKhoa.Appointments
 
         private void CalculateTime()
         {
-           
+
             if (comboBoxStart.SelectedItem != null && comboBoxTime.SelectedItem != null)
             {
 
@@ -113,7 +116,7 @@ namespace NhaKhoa.Appointments
                 StartTime = selectedDate + startTime;
                 EndTime = selectedDate + endTime;
 
-              
+
             }
         }
 
@@ -158,30 +161,22 @@ namespace NhaKhoa.Appointments
             return endTime;
         }
 
-
-        private void comboBoxStart_SelectedIndexChanged(object sender, EventArgs e)
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            CalculateTime();
-
-        }
-
-        private void comboBoxTime_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CalculateTime();
-
+            this.selectedDate = DateTimePicker1.Value.Date;
         }
 
         private void bt_add_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = DateTimePicker1.Value.Date;
-            int DoctorId = (int)ComboBoxBS.SelectedValue;
+            
             int PatientID = (int)ComboBoxBN.SelectedValue;
             string description = TextBoxdesc.Text;
-         
+
             string status = "Chưa hoàn thành ";
-            if (!apm.IsAppointmentOverlapping(DoctorId, StartTime, EndTime))
+            if (!apm.IsAppointmentOverlapping(DoctorID, StartTime, EndTime))
             {
-                apm.InsertAppointment(PatientID, DoctorId, StartTime, EndTime, description, status);
+                apm.InsertAppointment(PatientID, DoctorID, StartTime, EndTime, description, status);
                 MessageBox.Show("Thành công ", "Add appointment", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -191,9 +186,21 @@ namespace NhaKhoa.Appointments
             }
         }
 
-        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void comboBoxTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.selectedDate = DateTimePicker1.Value.Date;
+            CalculateTime();
+        }
+
+        private void comboBoxStart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateTime();
+
+        }
+
+        private void ComboBoxBN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateTime();
+
         }
     }
 }

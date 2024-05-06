@@ -218,5 +218,11 @@ namespace NhaKhoa.Appointments
         {
             DateTimePicker1.Value = DateTime.Today;
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            ApmForEmployees a = new ApmForEmployees();
+            a.Show(this);
+        }
     }
 }
