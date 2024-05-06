@@ -1,6 +1,6 @@
 ﻿namespace NhaKhoa.Appointments
 {
-    partial class ApmForEmployees
+    partial class ApmForDoctor
     {
         /// <summary>
         /// Required designer variable.
@@ -29,22 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApmForEmployees));
             this.comboBoxStart = new Guna.UI2.WinForms.Guna2ComboBox();
             this.comboBoxTime = new Guna.UI2.WinForms.Guna2ComboBox();
             this.DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.ComboBoxBS = new Guna.UI2.WinForms.Guna2ComboBox();
             this.ComboBoxBN = new Guna.UI2.WinForms.Guna2ComboBox();
             this.TextBoxdesc = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bt_add = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,23 +119,6 @@
             this.guna2HtmlLabel2.TabIndex = 4;
             this.guna2HtmlLabel2.Text = "Thời gian  :";
             // 
-            // ComboBoxBS
-            // 
-            this.ComboBoxBS.BackColor = System.Drawing.Color.Transparent;
-            this.ComboBoxBS.BorderRadius = 20;
-            this.ComboBoxBS.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.ComboBoxBS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboBoxBS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBoxBS.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboBoxBS.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboBoxBS.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.ComboBoxBS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.ComboBoxBS.ItemHeight = 30;
-            this.ComboBoxBS.Location = new System.Drawing.Point(3, 92);
-            this.ComboBoxBS.Name = "ComboBoxBS";
-            this.ComboBoxBS.Size = new System.Drawing.Size(207, 36);
-            this.ComboBoxBS.TabIndex = 5;
-            // 
             // ComboBoxBN
             // 
             this.ComboBoxBN.BackColor = System.Drawing.Color.Transparent;
@@ -153,6 +135,7 @@
             this.ComboBoxBN.Name = "ComboBoxBN";
             this.ComboBoxBN.Size = new System.Drawing.Size(207, 36);
             this.ComboBoxBN.TabIndex = 6;
+            this.ComboBoxBN.SelectedIndexChanged += new System.EventHandler(this.ComboBoxBN_SelectedIndexChanged);
             // 
             // TextBoxdesc
             // 
@@ -211,17 +194,6 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(486, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(296, 295);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
             // bt_add
             // 
             this.bt_add.AutoRoundedCorners = true;
@@ -258,12 +230,44 @@
             this.guna2Button1.TabIndex = 21;
             this.guna2Button1.Text = "Cancel";
             // 
-            // ApmForEmployees
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.BorderRadius = 20;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(12, 92);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(200, 36);
+            this.guna2TextBox1.TabIndex = 22;
+            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(486, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(296, 295);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ApmForDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(794, 383);
+            this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.bt_add);
             this.Controls.Add(this.pictureBox1);
@@ -272,15 +276,13 @@
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.TextBoxdesc);
             this.Controls.Add(this.ComboBoxBN);
-            this.Controls.Add(this.ComboBoxBS);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.DateTimePicker1);
             this.Controls.Add(this.comboBoxTime);
             this.Controls.Add(this.comboBoxStart);
-            this.Name = "ApmForEmployees";
+            this.Name = "ApmForDoctor";
             this.Text = "ApmForEmployees";
-            this.Load += new System.EventHandler(this.ApmForEmployees_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -294,7 +296,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker DateTimePicker1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ComboBox ComboBoxBS;
         private Guna.UI2.WinForms.Guna2ComboBox ComboBoxBN;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxdesc;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
@@ -304,5 +305,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button bt_add;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
     }
 }

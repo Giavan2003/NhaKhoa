@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NhaKhoa.Appointments;
+using NhaKhoa.MEDICINE;
+using NhaKhoa.SERVICE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,6 +49,21 @@ namespace NhaKhoa
         private void bt_bacsi_Click(object sender, EventArgs e)
         {
             container(new DoctorManagementForm());
+        }
+
+        private void bt_lichen_Click(object sender, EventArgs e)
+        {
+            container(new ShowAppointment());
+        }
+
+        private void btThuoc_Click(object sender, EventArgs e)
+        {
+            container(new ManageMedicines());
+        }
+
+        private void btqldichvu_Click(object sender, EventArgs e)
+        {
+            container(new ManageSV());
         }
     }
 }

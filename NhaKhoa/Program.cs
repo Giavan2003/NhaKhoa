@@ -1,4 +1,5 @@
-﻿using NhaKhoa.Appointments;
+using NhaKhoa.Appointments;
+using NhaKhoa.MEDICINE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,10 @@ namespace NhaKhoa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            //Application.Run(new LoginForm());
+            //Application.Run(new ShowAppointment());
             //Application.Run(new ApmForEmployees());
+             Application.Run(new AdminMainForm());
         }
     }
 }
