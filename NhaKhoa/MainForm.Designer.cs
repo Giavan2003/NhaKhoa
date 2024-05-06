@@ -159,6 +159,7 @@ namespace NhaKhoa
             this.bt_dieutri.Size = new System.Drawing.Size(270, 62);
             this.bt_dieutri.TabIndex = 3;
             this.bt_dieutri.Text = "Quản Lý Điều Trị";
+            this.bt_dieutri.Click += new System.EventHandler(this.bt_dieutri_Click);
             // 
             // bt_lichhen
             // 

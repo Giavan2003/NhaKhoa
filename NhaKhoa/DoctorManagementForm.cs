@@ -53,7 +53,6 @@ namespace NhaKhoa
                 gender = "Female";
             }
 
-            MemoryStream image = new MemoryStream();
             int born_year = guna2DateTimePicker1.Value.Year;
             int this_year = DateTime.Now.Year;
             if (((this_year - born_year) < 22) || ((this_year - born_year) > 60))
@@ -68,7 +67,7 @@ namespace NhaKhoa
             {
                 MessageBox.Show("Invalid input. Please check the provided information.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (!doctors.IsEmailUnique(email))
+            else if (!doctors.IsEmailUnique(email))
             {
                 MessageBox.Show("Email already exists. Please use a different email.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -82,8 +81,9 @@ namespace NhaKhoa
             }
             else if (verif())
             {
+                MemoryStream image = new MemoryStream();
                 guna2PictureBox1.Image.Save(image, guna2PictureBox1.Image.RawFormat);
-                if (doctors.InsertDoctor(fname, specialization, bdate, gender, identitynumber, adrs, email, phone, image))
+                if (!doctors.InsertDoctor(fname, specialization, bdate, gender, identitynumber, adrs, email, phone, image))
                 {
                     MessageBox.Show("New Doctor Added", "Add Doctor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -94,7 +94,7 @@ namespace NhaKhoa
             }
             else
             {
-                MessageBox.Show("Empty Fields", "Add Patient", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Empty Fields", "Add Doctor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         bool IsNumeric(string input)
@@ -158,7 +158,7 @@ namespace NhaKhoa
             {
                 MessageBox.Show("Invalid input. Please check the provided information.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (!doctors.IsEmailUnique2(email, id))
+            else if (!doctors.IsEmailUnique2(email, id))
             {
                 MessageBox.Show("Email already exists. Please use a different email.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

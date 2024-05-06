@@ -37,7 +37,7 @@ namespace NhaKhoa
                 gender = "Female";
             }
 
-            MemoryStream image = new MemoryStream();
+            MemoryStream pic = new MemoryStream();
             int born_year = guna2DateTimePicker1.Value.Year;
             int this_year = DateTime.Now.Year;
             // Kiểm tra tuổi hợp lệ của sinh viên
@@ -67,8 +67,8 @@ namespace NhaKhoa
             }
             else if (verif())
             {
-                guna2PictureBox1.Image.Save(image, guna2PictureBox1.Image.RawFormat);
-                if (employess.InsertEmployee(fname, bdate, gender, identitynumber, adrs, email, phone, image, position))
+                guna2PictureBox1.Image.Save(pic, guna2PictureBox1.Image.RawFormat);
+                if (!employess.InsertEmployee(fname, bdate, gender, identitynumber, adrs, email, phone, pic, position))
                 {
                     MessageBox.Show("New Employee Added", "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -203,11 +203,11 @@ namespace NhaKhoa
         {
             try
             {
-                int doctorId = Convert.ToInt32(txt_id.Text);
+                int employessid = Convert.ToInt32(txt_id.Text);
                 // display a confirmation message before the delete
                 if ((MessageBox.Show("Are You Sure You Want To Delete This Employee", "Delete Employee", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                 {
-                    if (employess.DeleteEmployee(doctorId))
+                    if (employess.DeleteEmployee(employessid))
                     {
                         MessageBox.Show("Employee Deleted", "Delete Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         // clear fields after delete

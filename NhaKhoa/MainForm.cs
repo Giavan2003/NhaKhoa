@@ -16,7 +16,7 @@ namespace NhaKhoa
         {
             InitializeComponent();
         }
-        private void container(object _form)
+        public void container(object _form)
         {
 
             if (guna2Panel3.Controls.Count > 0) guna2Panel3.Controls.Clear();
@@ -36,6 +36,9 @@ namespace NhaKhoa
             container(new PatientManagementForm());
         }
 
-
+        private void bt_dieutri_Click(object sender, EventArgs e)
+        {
+            container(new PatientServiceListForm());
+        }
     }
 }

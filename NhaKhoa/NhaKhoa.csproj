@@ -61,6 +61,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMedicinesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMedicinesForm.Designer.cs">
+      <DependentUpon>AddMedicinesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPlanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPlanForm.Designer.cs">
+      <DependentUpon>AddPlanForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,35 @@
       <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYESS.cs" />
+    <Compile Include="PATIENTMEDICINES.cs" />
+    <Compile Include="PatientServiceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientServiceListForm.Designer.cs">
+      <DependentUpon>PatientServiceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientServiceForm.Designer.cs">
+      <DependentUpon>PatientServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GLOBAL.cs" />
+    <Compile Include="MEDICINES.cs" />
+    <Compile Include="PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PLANSERVICES.cs" />
+    <Compile Include="SERVICES.cs" />
+    <Compile Include="ServicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServicesForm.Designer.cs">
+      <DependentUpon>ServicesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +189,13 @@
     <Compile Include="POSITION.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="STATUS.cs" />
+    <EmbeddedResource Include="AddMedicinesForm.resx">
+      <DependentUpon>AddMedicinesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPlanForm.resx">
+      <DependentUpon>AddPlanForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +217,12 @@
     <EmbeddedResource Include="EmployeesMangementForm.resx">
       <DependentUpon>EmployeesMangementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PatientServiceListForm.resx">
+      <DependentUpon>PatientServiceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientServiceForm.resx">
+      <DependentUpon>PatientServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PatientManagementForm.resx">
       <DependentUpon>PatientManagementForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,10 +232,16 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServicesForm.resx">
+      <DependentUpon>ServicesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DENTALDataSet.xsc">
       <DependentUpon>DENTALDataSet.xsd</DependentUpon>

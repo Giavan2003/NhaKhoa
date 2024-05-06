@@ -80,5 +80,6 @@ namespace NhaKhoa
                 MessageBox.Show("Invalid Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
